@@ -9,6 +9,24 @@ CREATE TABLE identification_types
         DEFAULT (CURRENT_TIMESTAMP AT TIME ZONE 'UTC')
 );
 
+-- Semilla de ejemplo (ajuste o elimine según su modelo)
+INSERT INTO clients
+(
+    customer_number,
+    identification_type_id,
+    identification_number,
+    first_name,
+    last_name
+)
+VALUES
+(
+    'C000001',
+    1,
+    '1001234567',
+    'Carlos',
+    'Maldonado'
+);
+
 -- Crear tabla Clients (solo si no existe) y referenciar IdentificationTypes
 CREATE TABLE clients
 (
@@ -32,24 +50,6 @@ CREATE TABLE clients
     modified_at TIMESTAMP(3),
     row_ver BIGINT NOT NULL DEFAULT 0,
     CONSTRAINT fk_clients_identification_type FOREIGN KEY (identification_type_id) REFERENCES identification_types (identification_type_id)
-);
-
--- Semilla de ejemplo (ajuste o elimine según su modelo)
-INSERT INTO clients
-(
-    customer_number,
-    identification_type_id,
-    identification_number,
-    first_name,
-    last_name
-)
-VALUES
-(
-    'C000001',
-    1,
-    '1001234567',
-    'Carlos',
-    'Maldonado'
 );
 
 -- Sample INSERTs for dbo.Clients (15 rows)

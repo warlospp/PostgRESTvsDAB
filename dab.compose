@@ -1,0 +1,6 @@
+docker run -d ^
+  --name dab-sqlserver ^
+  --network bridge ^
+  -p 5000:5000 ^
+  -v "D:\DockerVolumes\dab\config\dab-config.json:/App/dab-config.json:ro" ^
+  mcr.microsoft.com/azure-databases/data-api-builder:latest

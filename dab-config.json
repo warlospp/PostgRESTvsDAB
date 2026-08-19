@@ -3,7 +3,7 @@
 
   "data-source": {
     "database-type": "mssql",
-    "connection-string": "Server=sqlserver-container,1433;Database=bdd_demo;User Id=demo_readonly_login;Password=Admin.123;TrustServerCertificate=True;Encrypt=True;"
+    "connection-string": "Server=sqlserver-container,1433;Database=bdd_demo;User Id=demo_readonly_user;Password=Admin.123;TrustServerCertificate=True;Encrypt=True;"
   },
 
   "runtime": {

@@ -12,7 +12,7 @@ http://localhost:5000/swagger
 
 # Get Tabla
 http://localhost:3000/clients
-http://localhost:5000/api/Clients
+http://localhost:5000/api/clients
 
 ##################
 # OData Inspired #
@@ -21,21 +21,21 @@ http://localhost:5000/api/Clients
 # Filtro
 http://localhost:3000/clients?$filter=first_name eq 'John' #Error
 http://localhost:3000/clients?first_name=eq.John
-http://localhost:5000/api/Clients?$filter=FirstName eq 'John'
+http://localhost:5000/api/clients?$filter=first_name  eq 'John'
 
 # Select
 http://localhost:3000/clients?select=client_id,first_name,last_name
-http://localhost:5000/api/Clients?$select=ClientID,FirstName,LastName
+http://localhost:5000/api/clients?$select=client_id,first_name,last_name
 
 # Filtro y Select
 http://localhost:3000/clients?select=client_id,first_name,last_name&first_name=eq.John
-http://localhost:5000/api/Clients?$select=ClientID,FirstName,LastName&$filter=FirstName eq 'John'
+http://localhost:5000/api/clients?$select=client_id,first_name,last_name&$filter=first_name eq 'John'
 
 # Muestreo
 http://localhost:3000/clients?limit=2
-http://localhost:5000/api/Clients?$first=2
-http://localhost:5000/api/Clients?$top=2 #Error
+http://localhost:5000/api/clients?$first=2
+http://localhost:5000/api/clients?$top=2 #Error
 
 # Contiene
 http://localhost:3000/clients?select=client_id,first_name,last_name&first_name=like.*oh*
-http://localhost:3000/clients?select=client_id,first_name,last_name&first_name=ilike.*oh*
+http://localhost:5000/api/clients?$select=client_id,first_name,last_name&$filter=first_name eq 'John'

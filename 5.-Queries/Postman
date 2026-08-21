@@ -1,0 +1,33 @@
+########
+# Rest #
+########
+
+# Get Health Check
+http://localhost:3000/health
+http://localhost:5000/health
+
+# Get Especificación OpenAPI/Swagger
+http://localhost:3000/
+http://localhost:5000/swagger
+
+# Get Tabla
+http://localhost:3000/clients
+http://localhost:5000/api/Clients
+
+#########
+# OData #
+#########
+
+# Filtro
+http://localhost:3000/clients?$filter=first_name eq 'John' #Error
+http://localhost:3000/clients?first_name=eq.John
+http://localhost:5000/api/Clients?$filter=FirstName eq 'John'
+
+# Select
+http://localhost:3000/clients?select=client_id,first_name,last_name
+http://localhost:5000/api/Clients?$select=ClientID,FirstName,LastName
+
+# Muestreo
+http://localhost:3000/clients?limit=2
+http://localhost:5000/api/Clients?$first=2
+http://localhost:5000/api/Clients?$top=2 #Error

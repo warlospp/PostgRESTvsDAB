@@ -13,7 +13,7 @@
     },
 
     "graphql": {
-      "enabled": false
+      "enabled": true
     },
 
     "host": {

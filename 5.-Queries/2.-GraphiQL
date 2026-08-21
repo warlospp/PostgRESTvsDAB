@@ -18,6 +18,8 @@ query {
       ClientID
       FirstName
       LastName
+      Email
+      Phone
     }
   }
 }

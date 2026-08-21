@@ -27,7 +27,15 @@ http://localhost:5000/api/Clients?$filter=FirstName eq 'John'
 http://localhost:3000/clients?select=client_id,first_name,last_name
 http://localhost:5000/api/Clients?$select=ClientID,FirstName,LastName
 
+# Filtro y Select
+http://localhost:3000/clients?select=client_id,first_name,last_name&first_name=eq.John
+http://localhost:5000/api/Clients?$select=ClientID,FirstName,LastName&$filter=FirstName eq 'John'
+
 # Muestreo
 http://localhost:3000/clients?limit=2
 http://localhost:5000/api/Clients?$first=2
 http://localhost:5000/api/Clients?$top=2 #Error
+
+# Contiene
+http://localhost:3000/clients?select=client_id,first_name,last_name&first_name=like.*oh*
+http://localhost:3000/clients?select=client_id,first_name,last_name&first_name=ilike.*oh*

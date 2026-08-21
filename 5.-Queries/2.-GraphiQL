@@ -1,0 +1,51 @@
+###########
+# GRAPHQL #
+###########
+
+# Acceder GraphiQL
+http://localhost:5000/graphql
+
+# Filtro y Select
+query {
+  clients(
+    filter: {
+      FirstName: {
+        eq: "John"
+      }
+    }
+  ) {
+    items {
+      ClientID
+      FirstName
+      LastName
+    }
+  }
+}
+
+# Contiene
+query {
+  clients(
+    filter: {
+      FirstName: {
+        contains: "oh"
+      }
+    }
+  ) {
+    items {
+      ClientID
+      FirstName
+      LastName
+    }
+  }
+}
+
+# Muestreo
+query {
+  clients(first: 2) {
+    items {
+      ClientID
+      FirstName
+      LastName
+    }
+  }
+}

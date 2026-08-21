@@ -1,0 +1,87 @@
+{
+  "$schema": "https://github.com/Azure/data-api-builder/releases/latest/download/dab.draft.schema.json",
+
+  "data-source": {
+    "database-type": "postgresql",
+    "connection-string": "Host=host.docker.internal;Port=5432;Database=bdd_demo;Username=demo_readonly_user;Password=Admin.123;"
+  },
+
+  "runtime": {
+    "rest": {
+      "enabled": true,
+      "path": "/api"
+    },
+
+    "graphql": {
+      "enabled": true
+    },
+
+    "cache": {
+      "enabled": true
+    },
+
+    "host": {
+      "mode": "development"
+    }
+  },
+
+  "entities": {
+
+    "clients": {
+      "source": {
+        "object": "public.clients",
+        "type": "table"
+      },
+      "permissions": [
+        {
+          "role": "anonymous",
+          "actions": [
+            "read"
+          ]
+        }
+      ],
+      "cache": {
+        "enabled": true,
+        "ttl-seconds": 30,
+        "level": "L1"
+      }
+    },
+
+    "identification_types": {
+      "source": {
+        "object": "public.identification_types",
+        "type": "table"
+      },
+      "permissions": [
+        {
+          "role": "anonymous",
+          "actions": [
+            "read"
+          ]
+        }
+      ]
+    },
+
+	"vw_clients_with_identification": {
+	  "source": {
+		"object": "public.vw_clients_with_identification",
+		"type": "view"
+	  },
+	  "fields": [
+		{
+		  "name": "client_id",
+		  "primary-key": true
+		}
+	  ],
+	  "permissions": [
+		{
+		  "role": "anonymous",
+		  "actions": [
+			"read"
+		  ]
+		}
+	  ]
+	}
+
+  }
+}

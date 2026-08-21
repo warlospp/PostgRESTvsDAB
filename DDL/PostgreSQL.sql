@@ -60,3 +60,80 @@ SELECT
 FROM clients AS c
 LEFT JOIN identification_types AS it
     ON c.identification_type_id = it.identification_type_id;
+
+-- Create or alter a stored procedure that inserts a client and returns the inserted row
+CREATE OR REPLACE FUNCTION usp_insert_client(
+    p_customer_number          VARCHAR(20),
+    p_identification_type_id   INTEGER,
+    p_first_name               VARCHAR(100),
+    p_last_name                VARCHAR(100),
+
+    p_identification_number    VARCHAR(100) DEFAULT NULL,
+    p_email                    VARCHAR(255) DEFAULT NULL,
+    p_phone                    VARCHAR(50) DEFAULT NULL,
+    p_address_line1            VARCHAR(200) DEFAULT NULL,
+    p_address_line2            VARCHAR(200) DEFAULT NULL,
+    p_city                     VARCHAR(100) DEFAULT NULL,
+    p_state_province           VARCHAR(100) DEFAULT NULL,
+    p_postal_code              VARCHAR(20) DEFAULT NULL,
+    p_country                  VARCHAR(100) DEFAULT NULL,
+    p_date_of_birth            DATE DEFAULT NULL,
+    p_is_active                BOOLEAN DEFAULT TRUE
+)
+RETURNS SETOF clients
+LANGUAGE plpgsql
+AS $$
+BEGIN
+
+    -- Validar IdentificationTypeID
+    IF NOT EXISTS (
+        SELECT 1
+        FROM identification_types
+        WHERE identification_type_id = p_identification_type_id
+    ) THEN
+        RAISE EXCEPTION 'IdentificationTypeID does not exist.'
+            USING ERRCODE = '23503';
+    END IF;
+
+    -- Insertar y devolver el registro
+    RETURN QUERY
+    INSERT INTO clients
+    (
+        customer_number,
+        identification_type_id,
+        identification_number,
+        first_name,
+        last_name,
+        email,
+        phone,
+        address_line1,
+        address_line2,
+        city,
+        state_province,
+        postal_code,
+        country,
+        date_of_birth,
+        is_active
+    )
+    VALUES
+    (
+        p_customer_number,
+        p_identification_type_id,
+        p_identification_number,
+        p_first_name,
+        p_last_name,
+        p_email,
+        p_phone,
+        p_address_line1,
+        p_address_line2,
+        p_city,
+        p_state_province,
+        p_postal_code,
+        p_country,
+        p_date_of_birth,
+        p_is_active
+    )
+    RETURNING *;
+
+END;
+$$;

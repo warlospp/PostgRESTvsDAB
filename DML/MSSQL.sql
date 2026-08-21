@@ -24,3 +24,14 @@ VALUES
     (N'CUST0013', 2, N'P5554443', N'Natalia', N'Soto', N'natalia.soto@example.com', N'+593975331122', N'Pasaje 2 #4-6', N'Babahoyo', N'Los Rios', N'120101', N'Ecuador', '2000-08-09', 1),
     (N'CUST0014', 1, N'99887766', N'Victor', N'Benitez', N'victor.benitez@example.com', N'+593976543210', N'Avenida Norte 88', N'Milagro', N'Guayas', N'091001', N'Ecuador', '1969-10-30', 0),
     (N'CUST0015', 3, N'20333444556', N'Proveedor', N'SERV S.A.', N'info@servsa.example', N'+593211223344', N'Zona Comercial 40', N'Quito', N'Pichincha', N'170201', N'Ecuador', NULL, 1);
+
+-- -- The procedure returns the inserted row as a result set and @Id contains the new ClientID.
+DECLARE @Id INT;
+EXEC dbo.usp_InsertClient
+     @CustomerNumber = N'CUST100',
+     @IdentificationTypeID = 1,
+     @IdentificationNumber = N'12345678',
+     @FirstName = N'John',
+     @LastName = N'Doe',
+     @Email = N'john.doe@example.com',
+     @NewClientID = @Id OUTPUT;

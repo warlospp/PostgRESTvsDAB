@@ -1,13 +1,13 @@
--- Semilla de ejemplo (ajuste o elimine según su modelo)
-INSERT INTO dbo.IdentificationTypes (Code, Description)
+-- semilla de ejemplo (lower_snake_case)
+INSERT INTO dbo.identification_types (code, description)
 VALUES
-    ('CI', 'Cédula de identidad'),
-    ('PAS', 'Pasaporte'),
-    ('RUC', 'Registro único / NIT');
+    (N'CI', N'Cédula de identidad'),
+    (N'PAS', N'Pasaporte'),
+    (N'RUC', N'Registro único / NIT');
 
--- Sample INSERTs for dbo.Clients (15 rows)
-INSERT INTO dbo.Clients
-    (CustomerNumber, IdentificationTypeID, IdentificationNumber, FirstName, LastName, Email, Phone, AddressLine1, City, StateProvince, PostalCode, Country, DateOfBirth, IsActive)
+-- Inserts de ejemplo para dbo.clients (15 filas, lower_snake_case)
+INSERT INTO dbo.clients
+    (customer_number, identification_type_id, identification_number, first_name, last_name, email, phone, address_line1, city, state_province, postal_code, country, date_of_birth, is_active)
 VALUES
     (N'CUST0001', 1, N'12345678', N'Ana', N'Gonzalez', N'ana.gonzalez@example.com', N'+593987654321', N'Av. Siempre Viva 100', N'Quito', N'Pichincha', N'170103', N'Ecuador', '1985-04-12', 1),
     (N'CUST0002', 2, N'P1234567', N'Carlos', N'Martinez', N'c.martinez@example.com', N'+593998877665', N'1st St. 200', N'Guayaquil', N'Guayas', N'090101', N'Ecuador', '1990-11-05', 1),
@@ -25,13 +25,13 @@ VALUES
     (N'CUST0014', 1, N'99887766', N'Victor', N'Benitez', N'victor.benitez@example.com', N'+593976543210', N'Avenida Norte 88', N'Milagro', N'Guayas', N'091001', N'Ecuador', '1969-10-30', 0),
     (N'CUST0015', 3, N'20333444556', N'Proveedor', N'SERV S.A.', N'info@servsa.example', N'+593211223344', N'Zona Comercial 40', N'Quito', N'Pichincha', N'170201', N'Ecuador', NULL, 1);
 
--- -- The procedure returns the inserted row as a result set and @Id contains the new ClientID.
-DECLARE @Id INT;
-EXEC dbo.usp_InsertClient
-     @CustomerNumber = N'CUST100',
-     @IdentificationTypeID = 1,
-     @IdentificationNumber = N'12345678',
-     @FirstName = N'John',
-     @LastName = N'Doe',
-     @Email = N'john.doe@example.com',
-     @NewClientID = @Id OUTPUT;
+-- ejemplo de uso del procedimiento (lower_snake_case)
+DECLARE @id INT;
+EXEC dbo.usp_insert_client
+     @customer_number = N'CUST100',
+     @identification_type_id = 1,
+     @identification_number = N'12345678',
+     @first_name = N'John',
+     @last_name = N'Doe',
+     @email = N'john.doe@example.com',
+     @new_client_id = @id OUTPUT;

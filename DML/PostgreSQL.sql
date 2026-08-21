@@ -70,3 +70,14 @@ VALUES
     ('CUST0015', 3, '20333444556', 'Proveedor', 'SERV S.A.',
      'info@servsa.example', '+593211223344', 'Zona Comercial 40',
      'Quito', 'Pichincha', '170201', 'Ecuador', NULL, TRUE);
+
+-- -- The procedure returns the inserted row as a result set and @Id contains the new ClientID.
+SELECT *
+FROM usp_insert_client(
+    p_customer_number         => 'CUST100',
+    p_identification_type_id  => 1,
+    p_first_name              => 'John',
+    p_last_name               => 'Doe',
+    p_identification_number   => '12345678',
+    p_email                   => 'john.doe@example.com'
+);

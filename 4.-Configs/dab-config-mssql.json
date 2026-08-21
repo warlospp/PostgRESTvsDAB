@@ -17,8 +17,7 @@
     },
 
     "cache": {
-      "enabled": true,
-      "ttl-seconds": 60
+      "enabled": false
     },
 
     "host": {

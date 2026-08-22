@@ -3,7 +3,7 @@
 ###########
 
 # Acceder GraphiQL
-http://localhost:5000/graphql
+#http://localhost:5000/graphql
 
 # Filtro y Select
 query {

@@ -39,3 +39,15 @@ http://localhost:5000/api/clients?$top=2 #Error
 # Contiene
 http://localhost:3000/clients?select=client_id,first_name,last_name&first_name=like.*oh*
 http://localhost:5000/api/clients?$select=client_id,first_name,last_name&$filter=first_name eq 'John'
+
+# Paginacion
+#Metodo 1
+http://localhost:3000/clients?select=client_id,first_name,last_name,email&order=client_id.asc&limit=5&offset=0
+http://localhost:3000/clients?select=client_id,first_name,last_name,email&order=client_id.asc&limit=5&offset=5
+#Metodo 2
+http://localhost:3000/clients?select=client_id,first_name,last_name,email&order=client_id.asc
+Range 0-4
+Prefer count=exact
+
+http://localhost:5000/api/clients?$select=client_id,first_name,last_name,email&$first=5
+http://localhost:5000/api/clients?$select=client_id,first_name,last_name,email&$first=5&$after=W3siRW50aXR5TmFtZSI6ImNsaWVudHMiLCJGaWVsZE5hbWUiOiJjbGllbnRfaWQiLCJGaWVsZFZhbHVlIjo1LCJEaXJlY3Rpb24iOjB9XQ==

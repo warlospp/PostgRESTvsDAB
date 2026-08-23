@@ -55,4 +55,4 @@ query {
 
 #Paginación
 query { clients(first: 5) { items { client_id first_name last_name email } endCursor hasNextPage } }
-query { clients(first: 5, after: "W3siRW50aXR5TmFtZSI6ImNsaWVudHMiLCJGaWVsZE5hbWUiOiJjbGllbnRfaWQiLCJGaWVsZFZhbHVlIjo1LCJEaXJlY3Rpb24iOjB9XQ==") { items { client_id first_name last_name email } endCursor hasNextPage } }
+query { clients(first: 5, after: "") { items { client_id first_name last_name email } endCursor hasNextPage } }

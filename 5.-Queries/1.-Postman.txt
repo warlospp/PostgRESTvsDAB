@@ -3,51 +3,51 @@
 ########
 
 # Get Health Check
-http://localhost:3000/health
-http://localhost:5000/health
+http://localhost:8000/postgrest/health
+http://localhost:8000/dab/api/health
 
 # Get Especificación OpenAPI/Swagger
-http://localhost:3000/
+http://localhost:8000/postgrest
 http://localhost:5000/swagger
 
 # Get Tabla
-http://localhost:3000/clients
-http://localhost:5000/api/clients
+http://localhost:8000/postgrest/clients
+http://localhost:8000/dab/api/api/clients
 
 ##################
 # OData Inspired #
 ##################
 
 # Filtro
-http://localhost:3000/clients?$filter=first_name eq 'John' #Error
-http://localhost:3000/clients?first_name=eq.John
-http://localhost:5000/api/clients?$filter=first_name  eq 'John'
+http://localhost:8000/postgrest/clients?$filter=first_name eq 'John' #Error
+http://localhost:8000/postgrest/clients?first_name=eq.John
+http://localhost:8000/dab/api/clients?$filter=first_name  eq 'John'
 
 # Select
-http://localhost:3000/clients?select=client_id,first_name,last_name
-http://localhost:5000/api/clients?$select=client_id,first_name,last_name
+http://localhost:8000/postgrest/clients?select=client_id,first_name,last_name
+http://localhost:8000/dab/api/clients?$select=client_id,first_name,last_name
 
 # Filtro y Select
-http://localhost:3000/clients?select=client_id,first_name,last_name&first_name=eq.John
-http://localhost:5000/api/clients?$select=client_id,first_name,last_name&$filter=first_name eq 'John'
+http://localhost:8000/postgrest/clients?select=client_id,first_name,last_name&first_name=eq.John
+http://localhost:8000/dab/api/clients?$select=client_id,first_name,last_name&$filter=first_name eq 'John'
 
 # Muestreo
-http://localhost:3000/clients?limit=2
-http://localhost:5000/api/clients?$first=2
-http://localhost:5000/api/clients?$top=2 #Error
+http://localhost:8000/postgrest/clients?limit=2
+http://localhost:8000/dab/api/clients?$first=2
+http://localhost:8000/dab/api/clients?$top=2 #Error
 
 # Contiene
-http://localhost:3000/clients?select=client_id,first_name,last_name&first_name=like.*oh*
-http://localhost:5000/api/clients?$select=client_id,first_name,last_name&$filter=first_name eq 'John'
+http://localhost:8000/postgrest/clients?select=client_id,first_name,last_name&first_name=like.*oh*
+http://localhost:8000/dab/api/clients?$select=client_id,first_name,last_name&$filter=first_name eq 'John'
 
 # Paginacion
 #Metodo 1
-http://localhost:3000/clients?select=client_id,first_name,last_name,email&order=client_id.asc&limit=5&offset=0
-http://localhost:3000/clients?select=client_id,first_name,last_name,email&order=client_id.asc&limit=5&offset=5
+http://localhost:8000/postgrest/clients?select=client_id,first_name,last_name,email&order=client_id.asc&limit=5&offset=0
+http://localhost:8000/postgrest/clients?select=client_id,first_name,last_name,email&order=client_id.asc&limit=5&offset=5
 #Metodo 2
-http://localhost:3000/clients?select=client_id,first_name,last_name,email&order=client_id.asc
+http://localhost:8000/postgrest/clients?select=client_id,first_name,last_name,email&order=client_id.asc
 Range 0-4
 Prefer count=exact
 
-http://localhost:5000/api/clients?$select=client_id,first_name,last_name,email&$first=5
-http://localhost:5000/api/clients?$select=client_id,first_name,last_name,email&$first=5&$after=W3siRW50aXR5TmFtZSI6ImNsaWVudHMiLCJGaWVsZE5hbWUiOiJjbGllbnRfaWQiLCJGaWVsZFZhbHVlIjo1LCJEaXJlY3Rpb24iOjB9XQ==
+http://localhost:8000/dab/api/clients?$select=client_id,first_name,last_name,email&$first=5
+http://localhost:8000/dab/api/clients?$select=client_id,first_name,last_name,email&$first=5&$after=

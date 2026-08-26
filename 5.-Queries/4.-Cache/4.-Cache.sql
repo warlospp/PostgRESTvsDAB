@@ -1,7 +1,7 @@
 ----------
 -- CURL --
 ----------
-http://localhost:5000/api/clients?$select=client_id,first_name,last_name
+curl http://localhost:5000/api/clients?$select=client_id,first_name,last_name
 
 ---------------
 -- Modificar --

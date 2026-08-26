@@ -1,3 +1,8 @@
+-- Reinciar secuencia
+delete from dbo.clients:
+
+DBCC CHECKIDENT ('clients', RESEED, 0);
+
 -- semilla de ejemplo (lower_snake_case)
 INSERT INTO dbo.identification_types (code, description)
 VALUES

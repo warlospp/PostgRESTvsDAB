@@ -1,3 +1,8 @@
+-- Reinciar secuencia
+delete from clients;
+
+ALTER TABLE clients ALTER COLUMN client_id RESTART WITH 1;
+
 -- Semilla de ejemplo (ajuste o elimine según su modelo)
 INSERT INTO identification_types (code, description)
 VALUES

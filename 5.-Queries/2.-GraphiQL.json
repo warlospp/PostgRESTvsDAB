@@ -10,7 +10,7 @@ query {
   clients(
     filter: {
       first_name: {
-        eq: "John"
+        eq: "Luis"
       }
     }
   ) {

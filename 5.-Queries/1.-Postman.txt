@@ -4,32 +4,32 @@
 
 # Get Health Check
 http://localhost:8000/postgrest/health
-http://localhost:8000/dab/api/health
+http://localhost:8000/dab/health
 
-# Get Especificación OpenAPI/Swagger
-http://localhost:8000/postgrest
+# Get Especificación OpenAPI/Swagger (Browser)
+http://localhost:3000/
 http://localhost:5000/swagger
 
 # Get Tabla
 http://localhost:8000/postgrest/clients
-http://localhost:8000/dab/api/api/clients
+http://localhost:8000/dab/api/clients
 
 ##################
 # OData Inspired #
 ##################
 
 # Filtro
-http://localhost:8000/postgrest/clients?$filter=first_name eq 'John' #Error
-http://localhost:8000/postgrest/clients?first_name=eq.John
-http://localhost:8000/dab/api/clients?$filter=first_name  eq 'John'
+http://localhost:8000/postgrest/clients?$filter=first_name eq 'Luis' #Error
+http://localhost:8000/postgrest/clients?first_name=eq.Luis
+http://localhost:8000/dab/api/clients?$filter=first_name  eq 'Luis'
 
 # Select
 http://localhost:8000/postgrest/clients?select=client_id,first_name,last_name
 http://localhost:8000/dab/api/clients?$select=client_id,first_name,last_name
 
 # Filtro y Select
-http://localhost:8000/postgrest/clients?select=client_id,first_name,last_name&first_name=eq.John
-http://localhost:8000/dab/api/clients?$select=client_id,first_name,last_name&$filter=first_name eq 'John'
+http://localhost:8000/postgrest/clients?select=client_id,first_name,last_name&first_name=eq.Luis
+http://localhost:8000/dab/api/clients?$select=client_id,first_name,last_name&$filter=first_name eq 'Luis'
 
 # Muestreo
 http://localhost:8000/postgrest/clients?limit=2
@@ -37,8 +37,8 @@ http://localhost:8000/dab/api/clients?$first=2
 http://localhost:8000/dab/api/clients?$top=2 #Error
 
 # Contiene
-http://localhost:8000/postgrest/clients?select=client_id,first_name,last_name&first_name=like.*oh*
-http://localhost:8000/dab/api/clients?$select=client_id,first_name,last_name&$filter=first_name eq 'John'
+http://localhost:8000/postgrest/clients?select=client_id,first_name,last_name&first_name=like.*uis*
+http://localhost:8000/dab/api/clients?$select=client_id,first_name,last_name&$filter=first_name eq 'uis'
 
 # Paginacion
 #Metodo 1

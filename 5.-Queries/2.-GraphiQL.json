@@ -30,7 +30,7 @@ query {
   clients(
     filter: {
       first_name: {
-        contains: "oh"
+        contains: "uis"
       }
     }
   ) {

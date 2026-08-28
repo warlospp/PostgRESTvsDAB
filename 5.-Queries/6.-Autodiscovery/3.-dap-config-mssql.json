@@ -1,0 +1,93 @@
+{
+  "$schema": "https://github.com/Azure/data-api-builder/releases/latest/download/dab.draft.schema.json",
+
+  "data-source": {
+    "database-type": "mssql",
+    "connection-string": "Server=sqlserver-container,1433;Database=bdd_demo;User Id=demo_readonly_user;Password=Admin.123;TrustServerCertificate=True;Encrypt=True;"
+  },
+
+  "runtime": {
+    "rest": {
+      "enabled": true,
+      "path": "/api"
+    },
+
+    "graphql": {
+      "enabled": true
+    },
+
+    "cache": {
+      "enabled": false
+    },
+
+    "host": {
+      "mode": "development"
+    }
+  },
+
+  "entities": {
+
+    "clients": {
+      "source": {
+        "object": "dbo.clients",
+        "type": "table"
+      },
+      "permissions": [
+        {
+          "role": "anonymous",
+          "actions": [
+            "read"
+          ]
+        }
+      ]
+    },
+
+    "identification_types": {
+      "source": {
+        "object": "dbo.identification_types",
+        "type": "table"
+      },
+      "permissions": [
+        {
+          "role": "anonymous",
+
+          "actions": [
+            "read"
+          ]
+        }
+      ]
+    },
+
+    "client_identity_test": {
+      "source": {
+        "object": "dbo.client_identity_test",
+        "type": "table"
+      },
+      "permissions": [
+        {
+          "role": "anonymous",
+
+          "actions": [
+            "read"
+          ]
+        }
+      ]
+    },
+
+    "vw_clients_with_identification": {
+      "source": {
+        "object": "dbo.vw_clients_with_identification",
+        "type": "view"
+      },
+      "permissions": [
+        {
+          "role": "anonymous",
+          "actions": [
+            "read"
+          ]
+        }
+      ]
+    }
+
+  }
+}
